@@ -87,6 +87,9 @@ func (ptr api) display() {
 	typeOfS := v.Type()
 
 	for i := 0; i < v.NumField(); i++ {
+		if v.Field(i).Interface() == nil {
+			continue
+		}
 		fmt.Printf("%s: %v\n", typeOfS.Field(i).Name, v.Field(i).Interface())
 	}
 }
