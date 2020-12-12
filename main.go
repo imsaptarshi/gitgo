@@ -18,7 +18,14 @@ func main() {
 	case "info":
 		commands.Info(user)
 	case "repo": // g rishit repo name
-		name := os.Args[3]
-		commands.Repo(user, name)
+		if len(os.Args) > 3 {
+			if len(os.Args) <= 4 {
+				name := os.Args[3]
+
+				commands.Repo(user, name, os.Args[4:]...)
+			}
+		} else {
+			// commands.ListRepo(user)
+		}
 	}
 }

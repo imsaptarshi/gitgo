@@ -1,6 +1,6 @@
 package utils
 
-var filters = [16]string{"NodeID",
+var filters = [29]string{"NodeID",
 	"HTMLURL",
 	"FollowersURL",
 	"ID",
@@ -15,7 +15,21 @@ var filters = [16]string{"NodeID",
 	"EventsURL",
 	"ReceivedEventsURL",
 	"SiteAdmin",
-	"Type"}
+	"Type",
+	// Repo Filters
+	"GitURL",
+	"SSHURL",
+	"SvnUrl",
+	"WatchersCount",
+	"HasIssues",
+	"HasProjects",
+	"HasDownloads",
+	"HasWiki",
+	"CreatedAt",
+	"UpdatedAt",
+	"ReleasesURL",
+	"DeploymentsURL",
+	"NotificationURL"}
 
 func Filter(x string) bool {
 	for _, i := range filters {
