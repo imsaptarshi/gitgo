@@ -1,10 +1,10 @@
 package main
 
-import types "gitgo/types"
-import utils "gitgo/utils"
 import (
 	"encoding/json"
 	"fmt"
+	types "gitgo/types"
+	"gitgo/utils"
 	"log"
 	"os"
 	"reflect"
@@ -12,7 +12,7 @@ import (
 
 func getUserInfo(u string) types.User {
 	var user types.User
-	jsonErr := json.Unmarshal(utils.fetch(fmt.Sprintf("https://api.github.com/users/%s", u)), &user)
+	jsonErr := json.Unmarshal(utils.Fetch(fmt.Sprintf("https://api.github.com/users/%s", u)), &user)
 	if jsonErr != nil {
 		log.Fatal(jsonErr)
 	}
@@ -21,7 +21,7 @@ func getUserInfo(u string) types.User {
 
 func getRepoInfo(owner string, name string) types.Repo {
 	var repo types.Repo
-	jsonErr := json.Unmarshal(utils.fetch(fmt.Sprintf("https://api.github.com/repos/%s/%s", owner, name)), &repo)
+	jsonErr := json.Unmarshal(utils.Fetch(fmt.Sprintf("https://api.github.com/repos/%s/%s", owner, name)), &repo)
 
 	if jsonErr != nil {
 		log.Fatal(jsonErr)
@@ -30,6 +30,7 @@ func getRepoInfo(owner string, name string) types.Repo {
 	return repo
 }
 
+//...
 func Display(u types.User) {
 	v := reflect.ValueOf(u)
 	typeOfS := v.Type()

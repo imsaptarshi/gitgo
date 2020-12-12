@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func fetch(url string) []byte {
+func Fetch(url string) []byte {
 	gitClient := http.Client{
 		Timeout: time.Second * 10,
 	}
