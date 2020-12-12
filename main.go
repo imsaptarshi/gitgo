@@ -5,13 +5,10 @@ import (
 	"fmt"
 	"log"
 	"os"
-<<<<<<< HEAD
-=======
 	"reflect"
 
 	types "github.com/saptarshibasu15/gitgo/types"
 	"github.com/saptarshibasu15/gitgo/utils"
->>>>>>> 665f9b145d4b34658cf8ec6e92dfa985eadaddf2
 )
 
 func getUserInfo(u string) types.User {
@@ -34,8 +31,6 @@ func getRepoInfo(owner string, name string) types.Repo {
 	return repo
 }
 
-<<<<<<< HEAD
-=======
 //Display ...
 func Display(u interface{}) {
 	v := reflect.ValueOf(u)
@@ -49,7 +44,6 @@ func Display(u interface{}) {
 	}
 }
 
->>>>>>> 665f9b145d4b34658cf8ec6e92dfa985eadaddf2
 func printHelp() {
 	prompts := map[string]string{
 		"info": "gitgo <username> info",
@@ -63,27 +57,6 @@ func printHelp() {
 func main() {
 	if len(os.Args) < 3 {
 		printHelp()
-<<<<<<< HEAD
-		return
-	}
-
-	user := os.Args[1]
-	op := os.Args[2]
-
-	if user == "repo" {
-		// TODO
-		return
-	}
-
-	if op == "info" {
-		u := getUserInfo(user)
-		utils.Display(u)
-	} else if op == "repo" {
-		if len(os.Args) == 4 {
-			n := os.Args[3]
-			getRepoInfo(user, n)
-		}
-=======
 		return
 	}
 
@@ -96,6 +69,5 @@ func main() {
 	case "repo": // g rishit repo name
 		name := os.Args[3]
 		Display(getRepoInfo(user, name))
->>>>>>> 665f9b145d4b34658cf8ec6e92dfa985eadaddf2
 	}
 }

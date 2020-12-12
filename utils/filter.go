@@ -1,14 +1,24 @@
 package utils
 
-const total = 3
+var filters = [16]string{"NodeID",
+	"HTMLURL",
+	"FollowersURL",
+	"ID",
+	"NodeID",
+	"GravatarID",
+	"FollowingURL",
+	"GistsURL",
+	"StarredURL",
+	"SubscriptionURL",
+	"OrganizationsURL",
+	"ReposURL",
+	"EventsURL",
+	"ReceivedEventsURL",
+	"SiteAdmin",
+	"Type"}
 
-func GetFilterElems() [total]string {
-	var x [total]string = [total]string{"NodeID", "HTMLURL", "FollowersURL"}
-	return x
-}
-
-func IsInFilter(x string) bool {
-	for _, i := range GetFilterElems() {
+func Filter(x string) bool {
+	for _, i := range filters {
 		if i == x {
 			return true
 		}

@@ -2,8 +2,9 @@ package utils
 
 import (
 	"fmt"
-	"gitgo/types"
 	"reflect"
+
+	"github.com/saptarshibasu15/gitgo/types"
 )
 
 func Display(u types.User) {
@@ -12,7 +13,7 @@ func Display(u types.User) {
 
 	for i := 0; i < v.NumField(); i++ {
 		field := v.Field(i)
-		if field.Interface() == nil || field.Interface() == "" || IsInFilter(typeof.Field(i).Name) {
+		if field.Interface() == nil || field.Interface() == "" || Filter(typeof.Field(i).Name) {
 			continue
 		}
 		fmt.Printf("%s: %v\n", typeof.Field(i).Name, field.Interface())
