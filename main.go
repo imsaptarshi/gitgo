@@ -55,7 +55,6 @@ func printHelp() {
 }
 
 func main() {
-
 	if len(os.Args) < 3 {
 		printHelp()
 		return
