@@ -3,11 +3,12 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	types "gitgo/types"
-	"gitgo/utils"
 	"log"
 	"os"
 	"reflect"
+
+	types "github.com/saptarshibasu15/gitgo/types"
+	"github.com/saptarshibasu15/gitgo/utils"
 )
 
 func getUserInfo(u string) types.User {
@@ -30,8 +31,8 @@ func getRepoInfo(owner string, name string) types.Repo {
 	return repo
 }
 
-//...
-func Display(u types.User) {
+//Display ...
+func Display(u interface{}) {
 	v := reflect.ValueOf(u)
 	typeOfS := v.Type()
 
@@ -42,30 +43,32 @@ func Display(u types.User) {
 		fmt.Printf("%s: %v\n", typeOfS.Field(i).Name, v.Field(i).Interface())
 	}
 }
+
 func printHelp() {
-	// TODO
+	prompts := map[string]string{
+		"info": "gitgo <username> info",
+		"repo": "gitgo <username> repo <repository_name>",
+	}
+	for cmd, help := range prompts {
+		fmt.Println(cmd, "\t", help)
+	}
 }
 
 func main() {
 
 	if len(os.Args) < 3 {
 		printHelp()
-	}
-
-	user := os.Args[1]
-	op := os.Args[2]
-
-	if user == "repo" {
 		return
 	}
 
-	if op == "info" {
-		u := getUserInfo(user)
-		Display(u)
-	} else if op == "repo" {
-		if len(os.Args) == 4 {
-			n := os.Args[3]
-			getRepoInfo(user, n)
-		} // g rishit repo name
+	user, op := os.Args[1], os.Args[2]
+
+	switch op {
+	case "info":
+		res := getUserInfo(user)
+		Display(res)
+	case "repo": // g rishit repo name
+		name := os.Args[3]
+		Display(getRepoInfo(user, name))
 	}
 }
