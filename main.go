@@ -7,7 +7,6 @@ import (
 	"gitgo/utils"
 	"log"
 	"os"
-	"reflect"
 )
 
 func getUserInfo(u string) types.User {
@@ -30,42 +29,31 @@ func getRepoInfo(owner string, name string) types.Repo {
 	return repo
 }
 
-//...
-func Display(u types.User) {
-	v := reflect.ValueOf(u)
-	typeOfS := v.Type()
-
-	for i := 0; i < v.NumField(); i++ {
-		if v.Field(i).Interface() == nil {
-			continue
-		}
-		fmt.Printf("%s: %v\n", typeOfS.Field(i).Name, v.Field(i).Interface())
-	}
-}
 func printHelp() {
 	// TODO
 }
 
 func main() {
-
 	if len(os.Args) < 3 {
 		printHelp()
+		return
 	}
 
 	user := os.Args[1]
 	op := os.Args[2]
 
 	if user == "repo" {
+		// TODO
 		return
 	}
 
 	if op == "info" {
 		u := getUserInfo(user)
-		Display(u)
+		utils.Display(u)
 	} else if op == "repo" {
 		if len(os.Args) == 4 {
 			n := os.Args[3]
 			getRepoInfo(user, n)
-		} // g rishit repo name
+		}
 	}
 }
