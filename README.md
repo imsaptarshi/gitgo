@@ -35,6 +35,7 @@ $ cd ~/go/bin/
 - #### help :
 
 `$ ./gitgo` or `$ ./gitgo help`
+
 <img src="assets/help.png">
 
 - #### user info :
