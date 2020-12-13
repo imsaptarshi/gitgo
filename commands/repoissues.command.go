@@ -24,7 +24,7 @@ func RepoIssues(owner string, name string, ops ...string) {
 func displayRepoIssues(u types.RepoIssues, name string, ops ...string) {
 
 	fmt.Printf("%v/issues : %v", utils.Green(name), utils.White(len(u)))
-	for _, r := range u {
+	for k, r := range u {
 		v := reflect.ValueOf(r)
 		typeOfS := v.Type()
 		for i := 0; i < v.NumField(); i++ {
@@ -35,12 +35,24 @@ func displayRepoIssues(u types.RepoIssues, name string, ops ...string) {
 			x := ""
 			switch typeOfS.Field(i).Name {
 			case "Title":
-				x = utils.LBlue(fmt.Sprintf("\n     └── Title %v", utils.White(v.Field(i).Interface())))
+				if k == len(u)-1 {
+					x = utils.Yellow(fmt.Sprintf("\n     └── Title %v", utils.White(v.Field(i).Interface())))
+				} else {
+					x = utils.Yellow(fmt.Sprintf("\n     ├── Title %v", utils.White(v.Field(i).Interface())))
+				}
 			case "Number":
-				x = utils.Yellow(fmt.Sprintf("\n           ├── # %v", utils.White(v.Field(i).Interface())))
+				if k == len(u)-1 {
+					x = utils.Yellow(fmt.Sprintf("\n         ├── #%v", utils.White(v.Field(i).Interface())))
+				} else {
+					x = utils.Yellow(fmt.Sprintf("\n     │   ├── #%v", utils.White(v.Field(i).Interface())))
+				}
 
 			case "State":
-				x = utils.Yellow(fmt.Sprintf("\n           └── State %v", utils.White(v.Field(i).Interface())))
+				if k == len(u)-1 {
+					x = utils.Yellow(fmt.Sprintf("\n         └── State %v", utils.White(v.Field(i).Interface())))
+				} else {
+					x = utils.Yellow(fmt.Sprintf("\n     │   └── State %v", utils.White(v.Field(i).Interface())))
+				}
 			}
 			if x == "" {
 				continue
