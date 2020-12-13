@@ -29,6 +29,6 @@ func displayRepo(u types.Repo, ops ...string) {
 		if v.Field(i).Interface() == nil || /*( [] && !utils.Contains(typeOfS.Field(i).Name, ops)) ||*/ utils.Filter(typeOfS.Field(i).Name) {
 			continue
 		}
-		fmt.Printf("%s: %v\n", typeOfS.Field(i).Name, v.Field(i).Interface())
+		fmt.Printf("%s: %v\n", utils.Green(typeOfS.Field(i).Name), v.Field(i).Interface())
 	}
 }

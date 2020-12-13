@@ -9,7 +9,7 @@ import (
 
 func Fetch(url string) []byte {
 	gitClient := http.Client{
-		Timeout: time.Second * 10,
+		Timeout: time.Second * 60,
 	}
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {

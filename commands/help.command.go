@@ -1,6 +1,10 @@
 package commands
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/saptarshibasu15/gitgo/utils"
+)
 
 func Help() {
 	prompts := map[string]string{
@@ -8,6 +12,6 @@ func Help() {
 		"repo": "gitgo <username> repo <repository_name>",
 	}
 	for cmd, help := range prompts {
-		fmt.Println(cmd, "\t", help)
+		fmt.Printf("%s \t %s\n", utils.Green(cmd), help)
 	}
 }
