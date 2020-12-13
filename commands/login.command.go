@@ -18,6 +18,7 @@ func Login() {
 	req, err := http.NewRequest("POST", "https://github.com/login/device/code", strings.NewReader(params.Encode()))
 
 	req.Header.Add("Content-Type", "application/json")
+	req.Header.Set("User-Agent", "gitgo")
 
 	if err != nil {
 		log.Fatal(err)
