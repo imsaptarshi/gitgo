@@ -50,6 +50,7 @@ gitgo <username> info
 
   - `repo`
 
+
   ```sh
   gitgo <username> repo <repository_name>
   ```
@@ -58,13 +59,15 @@ gitgo <username> info
 
   - `repo *`
 
+
   ```sh
   gitgo <username> repo *
   ```
 
   <img src="assets/repo*.png">
 
-  - repo (-i | --issues)
+  - `repo (-i | --issues)`
+  
 
   ```sh
   gitgo <username> repo <repository_name> (-i | --issues)
