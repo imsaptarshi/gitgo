@@ -7,6 +7,7 @@ import (
 )
 
 func Help() {
+	utils.AsciiBanner()
 	prompts := map[string]string{
 		"info": "gitgo <username> info",
 		"repo": "gitgo <username> repo <repository_name>",

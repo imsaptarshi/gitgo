@@ -32,19 +32,20 @@ func displayRepo(u types.Repo, ops ...string) {
 		x := ""
 		switch typeOfS.Field(i).Name {
 		case "StargazersCount":
-			x = utils.Yellow(fmt.Sprintf("\n- Stars %d", v.Field(i).Interface()))
+			x = utils.Yellow(fmt.Sprintf("\n  ├── Stars %v", utils.White(v.Field(i).Interface())))
 		case "Name":
 			if v.Field(8).Interface() == true {
-				x = utils.LRed(fmt.Sprintf("%v: ", v.Field(i).Interface()))
+				x = utils.LRed(fmt.Sprintf("%v/", v.Field(i).Interface()))
 			} else {
-				x = utils.Green(fmt.Sprintf("%v: ", v.Field(i).Interface()))
+				x = utils.Green(fmt.Sprintf("%v/", v.Field(i).Interface()))
 			}
 		case "Forks":
-			x = utils.Yellow(fmt.Sprintf("\n- Forks %v ", v.Field(i).Interface()))
+			x = utils.Yellow(fmt.Sprintf("\n  └── Forks %v", utils.White(v.Field(i).Interface())))
 		}
 		if x == "" {
 			continue
 		}
 		fmt.Printf("%s", x)
 	}
+	fmt.Println()
 }

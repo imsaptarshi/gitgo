@@ -33,11 +33,11 @@ func displayRepoList(u types.RepoList, ops ...string) {
 			x := ""
 			switch typeOfS.Field(i).Name {
 			case "StargazersCount":
-				x = utils.Yellow(fmt.Sprintf("\n- Stars %d", v.Field(i).Interface()))
+				x = utils.Yellow(fmt.Sprintf("\n  ├── Stars %v", utils.White(v.Field(i).Interface())))
 			case "Name":
-				x = utils.Green(fmt.Sprintf("%v: ", v.Field(i).Interface()))
+				x = utils.Green(fmt.Sprintf("%v/", v.Field(i).Interface()))
 			case "Forks":
-				x = utils.Yellow(fmt.Sprintf("\n- Forks %v ", v.Field(i).Interface()))
+				x = utils.Yellow(fmt.Sprintf("\n  └── Forks %v ", utils.White(v.Field(i).Interface())))
 				// default:
 				// x = typeOfS.Field(i).Name
 			}

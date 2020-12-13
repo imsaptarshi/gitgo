@@ -7,3 +7,5 @@ var Green = color.FgGreen.Render
 var Red = color.FgRed.Render
 var LRed = color.FgLightRed.Render
 var Yellow = color.FgYellow.Render
+var White = color.FgWhite.Render
+var LBlue = color.FgLightBlue.Render
