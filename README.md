@@ -34,7 +34,12 @@ Or add it to your `~/.zshrc`, etc. for permanent use
 
 - #### Help :
 
+<<<<<<< HEAD
 `gitgo` or `gitgo help`
+=======
+`$ ./gitgo` or `$ ./gitgo help`
+
+>>>>>>> d2a2a2c86785d2fcb8c0939672fc8c73865b45e8
 <img src="assets/help.png">
 
 - #### User Info :
