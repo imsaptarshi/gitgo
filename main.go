@@ -24,7 +24,7 @@ func main() {
 
 				commands.Repo(user, name, os.Args[4:]...)
 			} else {
-				commands.RepoList(user, os.Args[4:]...)
+				commands.RepoList(user)
 			}
 		}
 	}
