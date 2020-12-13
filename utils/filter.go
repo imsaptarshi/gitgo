@@ -1,6 +1,6 @@
 package utils
 
-var filters = [29]string{"NodeID",
+var filters = [30]string{"NodeID",
 	"HTMLURL",
 	"FollowersURL",
 	"ID",
@@ -10,6 +10,7 @@ var filters = [29]string{"NodeID",
 	"GistsURL",
 	"StarredURL",
 	"SubscriptionURL",
+	"SubscriptionsURL",
 	"OrganizationsURL",
 	"ReposURL",
 	"EventsURL",
