@@ -16,6 +16,7 @@ func main() {
 		if os.Args[1] == "login" {
 			commands.Login()
 		}
+		return
 	}
 
 	user, op := os.Args[1], os.Args[2]
