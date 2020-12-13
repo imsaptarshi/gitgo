@@ -7,9 +7,15 @@ import (
 )
 
 func main() {
-	if len(os.Args) < 3 {
+	if len(os.Args) == 1 {
 		commands.Help()
 		return
+	}
+
+	if len(os.Args) == 2 {
+		if os.Args[1] == "login" {
+			commands.Login()
+		}
 	}
 
 	user, op := os.Args[1], os.Args[2]
