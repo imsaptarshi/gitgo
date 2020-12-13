@@ -1,2 +1,3 @@
 #!/bin/bash
-go install -u github.com/saptarshibasu15/gitgo
+go get -u github.com/saptarshibasu15/gitgo
+go install github.com/saptarshibasu15/gitgo
