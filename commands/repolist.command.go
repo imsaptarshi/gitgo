@@ -22,18 +22,26 @@ func RepoList(owner string) {
 }
 
 func displayRepoList(u types.RepoList, ops ...string) {
-	fmt.Println("[")
+
 	for _, r := range u {
 		v := reflect.ValueOf(r)
 		typeOfS := v.Type()
-		fmt.Println("\t{")
 		for i := 0; i < v.NumField(); i++ {
-			if v.Field(i).Interface() == nil {
+			if v.Field(i).Interface() == nil || utils.Filter(typeOfS.Field(i).Name) {
 				continue
 			}
-			fmt.Printf("\t\t%s : %v\n", utils.Green(typeOfS.Field(i).Name), v.Field(i).Interface())
+			x := ""
+			switch typeOfS.Field(i).Name {
+			case "StargazersCount":
+				x = utils.Yellow(fmt.Sprintf("\n- Stars %d", v.Field(i).Interface()))
+			case "Name":
+				x = utils.Green(fmt.Sprintf("%v: ", v.Field(i).Interface()))
+			}
+			if x == "" {
+				continue
+			}
+			fmt.Printf("%s", x)
 		}
-		fmt.Println("\t\b},")
+		fmt.Print("\n")
 	}
-	fmt.Println("]")
 }
