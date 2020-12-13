@@ -1,5 +1,7 @@
 package utils
 
+import "strings"
+
 var filters = [30]string{"NodeID",
 	"HTMLURL",
 	"FollowersURL",
@@ -32,7 +34,11 @@ var filters = [30]string{"NodeID",
 	"DeploymentsURL",
 	"NotificationURL"}
 
+// Filter ...
 func Filter(x string) bool {
+	if strings.HasSuffix(x, "URL") {
+		return true
+	}
 	for _, i := range filters {
 		if i == x {
 			return true
