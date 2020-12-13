@@ -10,7 +10,7 @@ import (
 	"github.com/saptarshibasu15/gitgo/utils"
 )
 
-func RepoList(owner string, ops ...string) {
+func RepoList(owner string) {
 	var repo types.RepoList
 	jsonErr := json.Unmarshal(utils.Fetch(fmt.Sprintf("https://api.github.com/users/%s/repos", owner)), &repo)
 
@@ -18,16 +18,16 @@ func RepoList(owner string, ops ...string) {
 		log.Fatal(jsonErr)
 	}
 
-	displayRepoList(repo, ops...)
+	displayRepoList(repo)
 }
 
-func displayRepoList(u types.RepoList, ops ...string) {
+func displayRepoList(u types.RepoList) {
 	for _, r := range u {
 		v := reflect.ValueOf(r)
 		typeOfS := v.Type()
 
 		for i := 0; i < v.NumField(); i++ {
-			if v.Field(i).Interface() == nil {
+			if v.Field(i).Interface() == nil || utils.Filter(typeOfS.Field(i).Name) {
 				continue
 			}
 			fmt.Printf("%s: %v\n", utils.Green(typeOfS.Field(i).Name), v.Field(i).Interface())
