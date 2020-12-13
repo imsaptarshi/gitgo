@@ -2,7 +2,7 @@ package utils
 
 import "strings"
 
-var filters = [30]string{"NodeID",
+var filters = [31]string{"NodeID",
 	"HTMLURL",
 	"FollowersURL",
 	"ID",
@@ -32,7 +32,9 @@ var filters = [30]string{"NodeID",
 	"UpdatedAt",
 	"ReleasesURL",
 	"DeploymentsURL",
-	"NotificationURL"}
+	"NotificationURL",
+	"Owner",
+}
 
 // Filter ...
 func Filter(x string) bool {

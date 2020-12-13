@@ -36,6 +36,10 @@ func displayRepoList(u types.RepoList, ops ...string) {
 				x = utils.Yellow(fmt.Sprintf("\n- Stars %d", v.Field(i).Interface()))
 			case "Name":
 				x = utils.Green(fmt.Sprintf("%v: ", v.Field(i).Interface()))
+			case "Forks":
+				x = utils.Yellow(fmt.Sprintf("\n- Forks %v ", v.Field(i).Interface()))
+				// default:
+				// x = typeOfS.Field(i).Name
 			}
 			if x == "" {
 				continue
