@@ -14,6 +14,10 @@ func main() {
 
 	user, op := os.Args[1], os.Args[2]
 
+	if user == "login" {
+		commands.Login()
+	}
+
 	switch op {
 	case "info":
 		commands.Info(user)
