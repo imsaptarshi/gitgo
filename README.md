@@ -30,6 +30,7 @@ Add it to your PATH for a session
 ```sh
 export PATH=$PATH:~/go/bin/
 ```
+
 Or add it to your `~/.zshrc`, etc. for permanent use
 
 - #### Help :
@@ -46,7 +47,7 @@ gitgo <username> info
 
 <img src="assets/userinfo.png">
 
-- #### repositories
+- #### Repositories
 
   - `repo`
 
@@ -78,4 +79,4 @@ gitgo <username> info
 
 ## Contributions
 
-Any contribution is welcome! Feel free to fix our readme or a typo!
+Any contribution is welcome! Feel free to fix our code or a typo!
