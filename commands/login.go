@@ -7,7 +7,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
-	"time"
+	"os"
+	"bufio"
 
 	"github.com/saptarshibasu15/gitgo/utils"
 )
@@ -30,11 +31,12 @@ func Login() {
 	auth_code := strings.Split(string(body), "&")[3]
 	deviceCode := strings.Split(string(body), "=")[0]
 	auth_code = strings.Split(auth_code, "=")[1]
-	fmt.Printf("Open https://github.com/login/device and type this code:\n%s", utils.Green(auth_code))
+	fmt.Printf("Open https://github.com/login/device and type this code:\n%s\n%s", utils.Green(auth_code), utils.Yellow("Press [Enter] to continue"))
 
+	reader := bufio.NewReader(os.Stdin)
+	reader.ReadString('\n')
 	// Doesn't Work
 	// TODO
-	time.Sleep(time.Second * 20)
 
 	resp, err = http.PostForm("https://github.com/login/oauth/access_token", url.Values{
 		"client_id":   {"625394a947368b4103bf"},
