@@ -22,6 +22,7 @@ A simple GitHub API integration with GoLang
 ```sh
 $ curl https://raw.githubusercontent.com/saptarshibasu15/gitgo/master/install.sh | sh
 ```
+_Note : Downloading binary from https://github.com/saptarshibasu15/gitgo/releases/tag/v1.0.1 is recommended for Windows devices._
 
 ## Usage
 
