@@ -32,6 +32,9 @@ func main() {
 					if os.Args[4] == "-i" || os.Args[4] == "--issues" {
 						commands.RepoIssues(user, name, os.Args[5:]...) //g user repo name -i/--issues
 					}
+          if os.Args[4] == "-pr" || os.Args[4] == "--pulls" {
+						commands.RepoPulls(user, name, os.Args[5:]...) //g user repo name -i/--issues
+					}
 				} else {
 					commands.Repo(user, name, os.Args[4:]...)
 				}

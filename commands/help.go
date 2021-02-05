@@ -14,6 +14,7 @@ func Help() {
 		"repo":                 "gitgo <username> repo <repository_name>",
 		"repo *":               "gitgo <username> repo *",
 		"repo (-i | --issues)": "gitgo <username> repo <repository_name> (-i | --issues)",
+    "repo (-pr | --pulls)": "gitgo <username> repo <repository_name> (-pr | --pulls)",
 	}
 	for cmd, help := range prompts {
 		fmt.Printf("%s \t %s\n", utils.Green(cmd), help)
